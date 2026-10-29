@@ -1,0 +1,59 @@
+[
+  {
+    "name": "search_cards",
+    "description": "Search Pokémon TCG (and other trading card games) cards by name in the TCGdex card database. Returns brief matches (id, localId, name, image thumbnail). Use get_card with an id for full card details.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Card name or partial name to search for, e.g. \"pikachu\". Omit to list cards."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max cards to return (default 30, max 100)."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_card",
+    "description": "Look up a single Pokémon TCG (or other trading card game) card by its TCGdex id (e.g. \"swsh3-136\"). Returns full card details: category, rarity, hp, types, stage, set, illustrator, attacks, abilities, and a high-quality image URL.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "TCGdex card id, e.g. \"swsh3-136\"."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "list_sets",
+    "description": "List all Pokémon TCG (and other trading card game) sets/expansions in the TCGdex database, with id, name, and card counts. Use get_set with an id for the full set including its card list.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_set",
+    "description": "Look up a single Pokémon TCG (or other trading card game) set by its TCGdex id (e.g. \"swsh3\"). Returns full set details: serie, release date, card counts, and the list of cards in the set.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "TCGdex set id, e.g. \"swsh3\"."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]
